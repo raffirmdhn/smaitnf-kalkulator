@@ -1,6 +1,9 @@
 body {
   font-family: Arial, sans-serif;
   margin: 30px;
+  background-color: white;
+  color: black;
+  transition: 0.2s;
 }
 
 input, button {
@@ -24,7 +27,7 @@ hr {
   margin: 20px 0;
 }
 
-/* Styling Tabel Hasil */
+/* Tabel Hasil */
 table {
   border-collapse: collapse;
   width: 100%;
@@ -42,8 +45,29 @@ th {
   background-color: #f2f2f2;
 }
 
+/* Highlight Hijau untuk Bonus */
 .bonus-row {
   background-color: #d4edda;
   color: #155724;
   font-weight: bold;
+}
+
+/* Class Dark Mode */
+.dark {
+  background-color: #222222;
+  color: white;
+}
+
+.dark th {
+  background-color: #333333;
+  color: white;
+}
+
+.dark td, .dark th {
+  border-color: #444444;
+}
+
+.dark .bonus-row {
+  background-color: #1e4620;
+  color: #98f5a6;
 }

@@ -7,6 +7,9 @@
 </head>
 <body>
 
+  <!-- Tombol Ganti Tema (Dark Mode) -->
+  <button onclick="gantiMode()">🌙 Ganti Mode</button>
+
   <h1>Kalkulator Diskon Belanja</h1>
 
   <!-- Form Input -->
@@ -40,7 +43,7 @@
       <td><strong>Total Bayar</strong></td>
       <td><strong id="txtTotal">Rp 0</strong></td>
     </tr>
-    <!-- Baris bonus (muncul jika belanja > 200rb) -->
+    <!-- Baris bonus (hanya muncul jika belanja > 200rb) -->
     <tr id="barisBonus" class="bonus-row" style="display: none;">
       <td>🎁 Bonus Spesial</td>
       <td>Potongan Ekstra Rp 10.000 + Free Ongkir!</td>
