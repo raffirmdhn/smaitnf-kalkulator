@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tantangan A: Sistem Kode Voucher Promo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Petunjuk Logika (Legend di Kanan) -->
+  <aside class="logic-legend">
+    <div class="legend-header">
+      <h4>Aturan Logika (A)</h4>
+      <button type="button" class="btn-toggle-legend" id="btnLegend" onclick="toggleLegend()">Buka</button>
+    </div>
+
+    <div id="legendContent" class="legend-content is-blurred">
+      <p><strong>1. Logika Diskon (%):</strong></p>
+      <ul>
+        <li>Rumus: <code>Harga × (Diskon / 100)</code></li>
+        <li>Validasi: Diskon antara 0% s/d 100%.</li>
+      </ul>
+      <p><strong>2. Kode Voucher Promo:</strong></p>
+      <ul>
+        <li><code>HEMAT10</code> ➔ Potongan Rp 10.000</li>
+        <li><code>NFJUARA</code> ➔ Potongan Rp 25.000</li>
+        <li>Case-Insensitive (<code>.toUpperCase()</code>)</li>
+      </ul>
+      <p><strong>3. Bonus Belanja > 200rb:</strong></p>
+      <ul>
+        <li>Total > Rp 200.000 ➔ Potongan Ekstra Rp 10.000 (Baris bonus muncul).</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Konten Utama -->
+  <main class="main-content">
+    <header class="header">
+      <button type="button" class="btn-theme" onclick="gantiMode()">Ganti Mode</button>
+      <h1>Kalkulator Diskon + Voucher Promo</h1>
+      <p class="subtitle">Tantangan A: Logika String & Percabangan Voucher (Contoh: <code>HEMAT10</code> atau <code>NFJUARA</code>)</p>
+    </header>
+
+    <!-- Form Input -->
+    <section class="section-form">
+      <div class="form-group">
+        <label for="harga">Harga Barang (Rp):</label>
+        <input type="number" id="harga" placeholder="Contoh: 200000">
+      </div>
+
+      <div class="form-group">
+        <label for="diskon">Diskon (%):</label>
+        <input type="number" id="diskon" placeholder="Contoh: 10">
+      </div>
+
+      <div class="form-group">
+        <label for="voucher">Kode Voucher (Opsional):</label>
+        <input type="text" id="voucher" placeholder="HEMAT10 / NFJUARA">
+      </div>
+
+      <div class="button-group">
+        <button type="button" onclick="hitung()">Hitung Total</button>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Tabel Rincian Hasil -->
+    <section class="section-hasil">
+      <h2>Rincian Pembayaran</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Keterangan</th>
+            <th>Nilai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Harga Asli</td>
+            <td id="txtHarga">Rp 0</td>
+          </tr>
+          <tr>
+            <td>Potongan Diskon</td>
+            <td id="txtPotongan">Rp 0</td>
+          </tr>
+          <tr>
+            <td>Potongan Voucher</td>
+            <td id="txtVoucher">Rp 0</td>
+          </tr>
+          <tr>
+            <td><strong>Total Bayar</strong></td>
+            <td><strong id="txtTotal">Rp 0</strong></td>
+          </tr>
+          <tr id="barisBonus" class="bonus-row" style="display: none;">
+            <td>Bonus Spesial</td>
+            <td>Belanja di atas 200rb dapat Potongan Ekstra Rp 10.000!</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

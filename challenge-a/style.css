@@ -1,0 +1,260 @@
+/* =========================================
+   STYLE DASAR (Kalkulator Diskon SMA)
+   ========================================= */
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+  padding-right: 320px; /* Ruang untuk petunjuk logika di kanan */
+}
+
+/* Header & Judul */
+.header h1 {
+  margin: 8px 0;
+  font-size: 24px;
+}
+
+.subtitle {
+  color: #666666;
+  font-size: 14px;
+  margin: 0 0 16px 0;
+}
+
+/* Form Group & Input */
+.form-group {
+  margin-bottom: 12px;
+  max-width: 450px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Tombol */
+.button-group {
+  margin: 15px 0;
+}
+
+button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.btn-theme {
+  background-color: #6c757d;
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.btn-theme:hover {
+  background-color: #5a6268;
+}
+
+hr {
+  margin: 20px 0;
+  max-width: 450px;
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Judul Bagian */
+h2 {
+  font-size: 18px;
+  margin: 15px 0 10px;
+}
+
+/* Tabel Hasil Pembayaran */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 450px;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+/* Highlight Baris Bonus */
+.bonus-row {
+  background-color: #d4edda;
+  color: #155724;
+  font-weight: bold;
+}
+
+/* =========================================
+   PETUNJUK LOGIKA (LEGEND DI KANAN)
+   ========================================= */
+.logic-legend {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  width: 260px;
+  background-color: #f9f9f9;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #007bff;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.legend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.legend-header h4 {
+  margin: 0;
+  color: #007bff;
+}
+
+.btn-toggle-legend {
+  background-color: #e9ecef;
+  color: #333333;
+  border: 1px solid #cccccc;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-toggle-legend:hover {
+  background-color: #dde2e6;
+}
+
+.legend-hint {
+  font-size: 11px;
+  color: #666666;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+/* Efek Spoiler (Blur) */
+.legend-content.is-blurred {
+  filter: blur(4px);
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.legend-content p {
+  margin: 8px 0 4px;
+}
+
+.legend-content ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.legend-content code {
+  background-color: #eeeeee;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #d63384;
+}
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+body.dark {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark .subtitle {
+  color: #aaaaaa;
+}
+
+body.dark input {
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border-color: #555555;
+}
+
+body.dark th {
+  background-color: #2d2d2d;
+}
+
+body.dark th, body.dark td {
+  border-color: #444444;
+}
+
+body.dark hr {
+  border-top-color: #444444;
+}
+
+body.dark .bonus-row {
+  background-color: #1b4320;
+  color: #a3e6ad;
+}
+
+body.dark .logic-legend {
+  background-color: #2d2d2d;
+  border-color: #444444;
+  border-left-color: #0d6efd;
+}
+
+body.dark .btn-toggle-legend {
+  background-color: #3d3d3d;
+  color: #ffffff;
+  border-color: #555555;
+}
+
+body.dark .legend-content code {
+  background-color: #3d3d3d;
+  color: #ff79c6;
+}
+
+/* Tampilan Layar Kecil */
+@media (max-width: 800px) {
+  body {
+    padding-right: 0;
+  }
+  .logic-legend {
+    position: static;
+    width: auto;
+    max-width: 450px;
+    margin-top: 25px;
+  }
+}

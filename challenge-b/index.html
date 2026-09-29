@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tantangan B: Multi-Item (Qty) & Ongkir Dinamis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Petunjuk Logika (Legend di Kanan) -->
+  <aside class="logic-legend">
+    <div class="legend-header">
+      <h4>Aturan Logika (B)</h4>
+      <button type="button" class="btn-toggle-legend" id="btnLegend" onclick="toggleLegend()">Buka</button>
+    </div>
+
+    <div id="legendContent" class="legend-content is-blurred">
+      <p><strong>1. Subtotal & Diskon:</strong></p>
+      <ul>
+        <li><code>Subtotal = Harga × Qty</code></li>
+        <li><code>Potongan = Subtotal × (Diskon / 100)</code></li>
+      </ul>
+      <p><strong>2. Tarif Ongkos Kirim:</strong></p>
+      <ul>
+        <li>Belanja <strong>&lt; Rp 100.000</strong> ➔ Ongkir <strong>Rp 15.000</strong></li>
+        <li>Belanja <strong>Rp 100rb - 200rb</strong> ➔ Ongkir <strong>Rp 10.000</strong></li>
+        <li>Belanja <strong>&ge; Rp 200.000</strong> ➔ Ongkir <strong>GRATIS (Rp 0)</strong></li>
+      </ul>
+      <p><strong>3. Total Bayar:</strong></p>
+      <ul>
+        <li><code>(Subtotal - Potongan) + Ongkir</code></li>
+        <li>Baris bonus gratis ongkir aktif jika &ge; 200rb.</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Konten Utama -->
+  <main class="main-content">
+    <header class="header">
+      <button type="button" class="btn-theme" onclick="gantiMode()">Ganti Mode</button>
+      <h1>Kalkulator Belanja + Ongkir Dinamis</h1>
+      <p class="subtitle">Tantangan B: Menghitung Jumlah Beli (Qty) & Logika Ongkir Bertingkat</p>
+    </header>
+
+    <!-- Form Input -->
+    <section class="section-form">
+      <div class="form-group">
+        <label for="harga">Harga Satuan Barang (Rp):</label>
+        <input type="number" id="harga" placeholder="Contoh: 50000">
+      </div>
+
+      <div class="form-group">
+        <label for="qty">Jumlah Beli (Qty):</label>
+        <input type="number" id="qty" value="1" min="1">
+      </div>
+
+      <div class="form-group">
+        <label for="diskon">Diskon (%):</label>
+        <input type="number" id="diskon" value="0" min="0" max="100">
+      </div>
+
+      <div class="button-group">
+        <button type="button" onclick="hitung()">Hitung Total</button>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Tabel Rincian Hasil -->
+    <section class="section-hasil">
+      <h2>Rincian Pembayaran</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Keterangan</th>
+            <th>Nilai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Subtotal (Harga × Qty)</td>
+            <td id="txtSubtotal">Rp 0</td>
+          </tr>
+          <tr>
+            <td>Potongan Diskon</td>
+            <td id="txtPotongan">Rp 0</td>
+          </tr>
+          <tr>
+            <td>Ongkos Kirim</td>
+            <td id="txtOngkir">Rp 0</td>
+          </tr>
+          <tr>
+            <td><strong>Total Bayar</strong></td>
+            <td><strong id="txtTotal">Rp 0</strong></td>
+          </tr>
+          <tr id="barisBonus" class="bonus-row" style="display: none;">
+            <td>Info Pengiriman</td>
+            <td>Selamat! Anda mendapatkan GRATIS ONGKIR!</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

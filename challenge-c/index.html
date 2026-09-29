@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tantangan C: Simulasi Mesin Kasir Lengkap</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Petunjuk Logika (Legend di Kanan) -->
+  <aside class="logic-legend">
+    <div class="legend-header">
+      <h4>Aturan Logika (C)</h4>
+      <button type="button" class="btn-toggle-legend" id="btnLegend" onclick="toggleLegend()">Buka</button>
+    </div>
+
+    <div id="legendContent" class="legend-content is-blurred">
+      <p><strong>1. Voucher Promo:</strong></p>
+      <ul>
+        <li><code>HEMAT10</code> ➔ Diskon Rp 10.000</li>
+        <li><code>NFJUARA</code> ➔ Diskon Rp 25.000</li>
+      </ul>
+      <p><strong>2. Skema Ongkir:</strong></p>
+      <ul>
+        <li>&lt; 100rb ➔ Ongkir <strong>Rp 15.000</strong></li>
+        <li>100rb - 200rb ➔ Ongkir <strong>Rp 10.000</strong></li>
+        <li>&ge; 200rb ➔ Ongkir <strong>GRATIS + Ekstra Rp 10.000</strong></li>
+      </ul>
+      <p><strong>3. Status Pembayaran:</strong></p>
+      <ul>
+        <li><span class="badge-red">Uang Kurang</span> ➔ Hitung selisih kurang</li>
+        <li><span class="badge-green">Uang Pas</span> ➔ Transaksi sukses</li>
+        <li><span class="badge-green">Uang Lebih</span> ➔ Hitung kembalian</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Konten Utama -->
+  <main class="main-content">
+    <header class="header">
+      <button type="button" class="btn-theme" onclick="gantiMode()">Ganti Mode</button>
+      <h1>Simulasi Mesin Kasir Pintar</h1>
+      <p class="subtitle">Tantangan C: Integrasi Voucher, Qty, Ongkir, Pembayaran & Uang Kembalian</p>
+    </header>
+
+    <!-- 1. Input Belanja -->
+    <section class="section-form">
+      <h2>1. Input Belanja</h2>
+
+      <div class="form-group">
+        <label for="harga">Harga Satuan (Rp):</label>
+        <input type="number" id="harga" placeholder="Contoh: 75000">
+      </div>
+
+      <div class="form-group">
+        <label for="qty">Jumlah Beli (Qty):</label>
+        <input type="number" id="qty" value="1" min="1">
+      </div>
+
+      <div class="form-group">
+        <label for="diskon">Diskon (%):</label>
+        <input type="number" id="diskon" value="0" min="0" max="100">
+      </div>
+
+      <div class="form-group">
+        <label for="voucher">Kode Voucher (Opsional):</label>
+        <input type="text" id="voucher" placeholder="HEMAT10 / NFJUARA">
+      </div>
+
+      <div class="button-group">
+        <button type="button" onclick="hitung()">Hitung Tagihan</button>
+        <button type="button" onclick="resetSemua()" class="btn-secondary">Reset</button>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- 2. Rincian Tagihan -->
+    <section class="section-hasil">
+      <h2>2. Rincian Tagihan</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Keterangan</th>
+            <th>Nilai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Subtotal (Harga × Qty)</td>
+            <td id="txtSubtotal">Rp 0</td>
+          </tr>
+          <tr>
+            <td>Potongan Diskon (%)</td>
+            <td id="txtPotongan">Rp 0</td>
+          </tr>
+          <tr>
+            <td>Potongan Voucher</td>
+            <td id="txtVoucher">Rp 0</td>
+          </tr>
+          <tr>
+            <td>Ongkos Kirim</td>
+            <td id="txtOngkir">Rp 0</td>
+          </tr>
+          <tr>
+            <td><strong>Total Tagihan</strong></td>
+            <td><strong id="txtTotal">Rp 0</strong></td>
+          </tr>
+          <tr id="barisBonus" class="bonus-row" style="display: none;">
+            <td>Bonus Promo</td>
+            <td>Belanja > 200rb: Free Ongkir + Potongan Spesial Rp 10.000!</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr>
+
+    <!-- 3. Pembayaran Kasir -->
+    <section class="section-bayar">
+      <h2>3. Pembayaran Kasir</h2>
+      <div class="form-group">
+        <label for="uangBayar">Uang yang Dibayarkan Pembeli (Rp):</label>
+        <input type="number" id="uangBayar" placeholder="Contoh: 200000">
+      </div>
+
+      <div class="button-group">
+        <button type="button" onclick="prosesBayar()" class="btn-success">Proses Pembayaran</button>
+      </div>
+
+      <div id="kotakKembalian" class="box-status" style="display: none;"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
