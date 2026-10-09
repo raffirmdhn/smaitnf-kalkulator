@@ -32,7 +32,7 @@ const listContainer = document.getElementById("daftarTugas");
 const formTugas = document.getElementById("formTugas");
 const inputTugas = document.getElementById("inputTugas");
 const badgeJumlah = document.getElementById("badgeJumlah");
-const pesanKosong = document.getElementById("pesanKosong");
+const pesan = document.getElementById("pesan");
 
 
 // --- 4. FUNGSI READ: RENDER DATA DARI ARRAY KE TAMPILAN HTML ---
@@ -43,10 +43,11 @@ function renderTugas() {
   // B. Update jumlah badge & pesan jika kosong
   badgeJumlah.innerText = `${daftarTugas.length} Tugas`;
   if (daftarTugas.length === 0) {
-    pesanKosong.style.display = "block";
+    pesan.innerText = "Belum ada tugas. Tambahkan tugas baru atau muat data dari API!";
+    pesan.style.display = "block";
     return;
   } else {
-    pesanKosong.style.display = "none";
+    pesan.style.display = "none";
   }
 
   // C. Looping setiap data tugas di array untuk dibuatkan elemen HTML
@@ -118,6 +119,10 @@ function hapusTugas(index) {
 
 // --- 8. QUICK PEEK API: AMBIL DATA AWAL DARI INTERNET ---
 function ambilDataAwal() {
+  // Tampilkan status loading sebelum mengambil data
+  pesan.innerText = "Sedang memuat data dari internet...";
+  pesan.style.display = "block";
+
   fetch("https://jsonplaceholder.typicode.com/todos?_limit=4")
     .then((response) => response.json())
     .then((data) => {
@@ -129,9 +134,11 @@ function ambilDataAwal() {
     })
     .catch((error) => {
       console.error("Gagal mengambil data dari API:", error);
+      pesan.innerText = "Gagal memuat data dari API!";
+      pesan.style.display = "block";
     });
 }
 
 // Jalankan pengambilan data API pertama kali saat website dibuka
-// ambilDataAwal();
-renderTugas();
+ambilDataAwal();
+// renderTugas();

@@ -20,7 +20,7 @@ function gantiMode() {
 // - formTugas
 // - inputTugas
 // - badgeJumlah
-// - pesanKosong
+// - pesan
 //
 // const listContainer = ...
 // const formTugas = ...
@@ -34,8 +34,8 @@ function renderTugas() {
   // B. Update jumlah tugas di badge
   // badgeJumlah.innerText = ...
 
-  // C. Cek apakah daftar kosong (jika kosong tampilkan pesanKosong & return, jika ada sembunyikan)
-  // if (...) { ... }
+  // C. Cek apakah daftar kosong (jika kosong tampilkan pesan & return, jika ada sembunyikan)
+  // if (daftarTugas.length === 0) { ... }
 
   // TODO 3: Looping daftarTugas menggunakan forEach untuk menambahkan HTML string
   daftarTugas.forEach((item, index) => {
@@ -95,6 +95,10 @@ function hapusTugas(index) {
 
 // --- 8. QUICK PEEK API: AMBIL DATA AWAL DARI INTERNET ---
 function ambilDataAwal() {
+  // Status Loading: Tampilkan teks loading di elemen pesan
+  // pesan.innerText = "Sedang memuat data dari internet...";
+  // pesan.style.display = "block";
+
   // TODO 8: Panggil fetch() ke endpoint: "https://jsonplaceholder.typicode.com/todos?_limit=4"
   // - .then() ke-1: konversi response ke JSON (.then((response) => response.json()))
   // - .then() ke-2: simpan data ke daftarTugas lalu panggil renderTugas()
