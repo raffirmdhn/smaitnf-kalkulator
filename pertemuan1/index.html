@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // VARIABEL
+        const PHI = 3.14;
+        // PHI = 10;
+        console.log(PHI);
+
+        let umur = 10;
+        console.log("Umur: " + umur);
+        umur = 11;
+        console.log("Umur: " + umur);
+
+
+        // TIPE DATA
+        let nama = "Raffi";
+        console.log("Nama: " + nama, typeof nama);
+        let usia = 10;
+        console.log("Usia: " + usia, typeof usia);
+        let isLakiLaki = true;
+        console.log("IsLakiLaki: " + isLakiLaki, typeof isLakiLaki);
+
+
+        // OPERATOR ARITMATIKA
+        // + - * / %
+        let harga = 10 + (10 - 5) * 10 / 5;
+        let x = 10;
+        let isGanjil = x % 2;
+        console.log('isGanjil: ' + isGanjil);
+
+        // OPERATOR PEMBANDING
+        // >, <, >=, <=, ==, ===, !=, !==
+        let opX = 10;
+        let opY = "10";
+        console.log("is op equal: ", opX == opY);
+        console.log("is op equal 2 : ", opX === opY);
+
+        console.log("is op equal 3: ", opX != opY);
+        console.log("is op equal 4 : ", opX !== opY);
+
+
+        // OPERATOR LOGIKA
+        // || , &&
+        let punyaTiket = true;
+        let olUsia = 10;
+
+        let isOr = punyaTiket === true || olUsia > 17;
+        console.log("isOr: ", isOr);
+        
+        let isAnd = punyaTiket === true && olUsia > 17;
+        console.log("isAnd: ", isAnd);
+
+
+
+        // KONDISI
+        let kUsia = 15;
+        if(kUsia > 17) {
+            console.log("Kondisi kUsia True!");
+        } else {
+            console.log('Ini kode else!');
+        }
+
+        let pesanan = "ayam";
+        switch(pesanan) {
+            case "mie":
+                console.log("Pesanan mie berhasil dibuat!");
+                break;
+            case "batagor":
+                console.log("Pesanan batagor berhasil dibuat!");
+                break;
+            case "bakso":
+                console.log("Pesanan bakso berhasil dibuat!");
+                break;
+            default:
+                console.log("Pesanan tidak ditemukan!");
+        }
+
+
+        // LOOPING
+        for (let i = 0; i < 50; i++) {
+            console.log("I Love You");
+        }
+
+        let lapar = true;
+        let suapan = 0;
+
+        while ( lapar ) {
+            suapan++;
+            console.log("Suapan ke-" + suapan);
+
+            if( suapan === 5 ) {
+                lapar = false;
+            }
+        }
+
+
+        // FUNCTION
+        function hitungDiskon(totalBelanja, nama) {
+            const diskon = 50;
+            console.log(`Total diskon ${nama} sebesar: `, totalBelanja * (diskon / 100) );
+            // Total diskon reyhan sebesar 50000, Total yg perlu dibayar ?
+        }
+        let belanjaA = hitungDiskon(100000, "reyhan");
+        let belanjaB = hitungDiskon(50000, "aga");
+        let belanjaC = hitungDiskon(35000, "naifa");
+
+    </script>
+</body>
+</html>

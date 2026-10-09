@@ -1,11 +1,63 @@
 /* =========================================
+   VARIABEL WARNA & TEMA (CSS Variables)
+   ========================================= */
+:root {
+  /* Warna Dasar */
+  --bg-body: #ffffff;
+  --text-main: #333333;
+  --text-muted: #666666;
+
+  /* Form & Input */
+  --bg-input: #ffffff;
+  --border-input: #cccccc;
+  --border-hr: #e0e0e0;
+
+  /* Tabel */
+  --th-bg: #f4f4f4;
+  --border-table: #dddddd;
+  --bonus-bg: #d4edda;
+  --bonus-text: #155724;
+
+  /* Panel Petunjuk Logika */
+  --legend-bg: #f9f9f9;
+  --legend-border: #dddddd;
+  --legend-btn-bg: #e9ecef;
+  --legend-btn-hover: #dde2e6;
+  --code-bg: #eeeeee;
+  --code-text: #d63384;
+}
+
+/* Nilai variabel saat mode gelap aktif */
+body.dark {
+  --bg-body: #1e1e1e;
+  --text-main: #f0f0f0;
+  --text-muted: #aaaaaa;
+
+  --bg-input: #2d2d2d;
+  --border-input: #555555;
+  --border-hr: #444444;
+
+  --th-bg: #2d2d2d;
+  --border-table: #444444;
+  --bonus-bg: #1b4320;
+  --bonus-text: #a3e6ad;
+
+  --legend-bg: #2d2d2d;
+  --legend-border: #444444;
+  --legend-btn-bg: #3d3d3d;
+  --legend-btn-hover: #4d4d4d;
+  --code-bg: #3d3d3d;
+  --code-text: #ff79c6;
+}
+
+/* =========================================
    STYLE DASAR (Kalkulator Diskon SMA)
    ========================================= */
 body {
   font-family: Arial, sans-serif;
   margin: 30px;
-  background-color: #ffffff;
-  color: #333333;
+  background-color: var(--bg-body);
+  color: var(--text-main);
   line-height: 1.6;
   padding-right: 320px; /* Ruang untuk petunjuk logika di kanan */
 }
@@ -17,7 +69,7 @@ body {
 }
 
 .subtitle {
-  color: #666666;
+  color: var(--text-muted);
   font-size: 14px;
   margin: 0 0 16px 0;
 }
@@ -43,7 +95,9 @@ input {
   padding: 8px 12px;
   font-size: 14px;
   border-radius: 4px;
-  border: 1px solid #cccccc;
+  background-color: var(--bg-input);
+  color: var(--text-main);
+  border: 1px solid var(--border-input);
 }
 
 input:focus {
@@ -86,7 +140,7 @@ hr {
   margin: 20px 0;
   max-width: 450px;
   border: 0;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--border-hr);
 }
 
 /* Judul Bagian */
@@ -104,19 +158,19 @@ table {
 }
 
 th, td {
-  border: 1px solid #dddddd;
+  border: 1px solid var(--border-table);
   padding: 8px 12px;
   text-align: left;
 }
 
 th {
-  background-color: #f4f4f4;
+  background-color: var(--th-bg);
 }
 
 /* Highlight Baris Bonus */
 .bonus-row {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: var(--bonus-bg);
+  color: var(--bonus-text);
   font-weight: bold;
 }
 
@@ -127,9 +181,9 @@ th {
   position: fixed;
   top: 25px;
   right: 25px;
-  width: 260px;
-  background-color: #f9f9f9;
-  border: 1px solid #dddddd;
+  width: 290px;
+  background-color: var(--legend-bg);
+  border: 1px solid var(--legend-border);
   border-left: 4px solid #007bff;
   border-radius: 6px;
   padding: 12px 16px;
@@ -150,9 +204,9 @@ th {
 }
 
 .btn-toggle-legend {
-  background-color: #e9ecef;
-  color: #333333;
-  border: 1px solid #cccccc;
+  background-color: var(--legend-btn-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-input);
   font-size: 11px;
   padding: 3px 8px;
   border-radius: 4px;
@@ -160,12 +214,12 @@ th {
 }
 
 .btn-toggle-legend:hover {
-  background-color: #dde2e6;
+  background-color: var(--legend-btn-hover);
 }
 
 .legend-hint {
   font-size: 11px;
-  color: #666666;
+  color: var(--text-muted);
   font-style: italic;
   margin-bottom: 8px;
 }
@@ -188,62 +242,10 @@ th {
 }
 
 .legend-content code {
-  background-color: #eeeeee;
+  background-color: var(--code-bg);
   padding: 2px 4px;
   border-radius: 3px;
-  color: #d63384;
-}
-
-/* =========================================
-   DARK MODE
-   ========================================= */
-body.dark {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-}
-
-body.dark .subtitle {
-  color: #aaaaaa;
-}
-
-body.dark input {
-  background-color: #2d2d2d;
-  color: #ffffff;
-  border-color: #555555;
-}
-
-body.dark th {
-  background-color: #2d2d2d;
-}
-
-body.dark th, body.dark td {
-  border-color: #444444;
-}
-
-body.dark hr {
-  border-top-color: #444444;
-}
-
-body.dark .bonus-row {
-  background-color: #1b4320;
-  color: #a3e6ad;
-}
-
-body.dark .logic-legend {
-  background-color: #2d2d2d;
-  border-color: #444444;
-  border-left-color: #0d6efd;
-}
-
-body.dark .btn-toggle-legend {
-  background-color: #3d3d3d;
-  color: #ffffff;
-  border-color: #555555;
-}
-
-body.dark .legend-content code {
-  background-color: #3d3d3d;
-  color: #ff79c6;
+  color: var(--code-text);
 }
 
 /* Tampilan Layar Kecil */

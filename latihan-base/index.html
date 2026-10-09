@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Diskon Belanja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Kalkulator Diskon Belanja</h1>
+        </header>
+
+        <section>
+            <div class="form-group">
+                <label for="harga">Harga Barang (Rp):</label>
+                <input type="number" id="harga" placeholder="Contoh: 250000">
+            </div>
+            <div class="form-group">
+                <label for="diskon">Diskon (%):</label>
+                <input type="number" id="diskon" placeholder="Contoh: 10">
+            </div>
+            <div class="form-group">
+                <button id="hitung">Hitung Total</button>
+            </div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Rincian Pembayaran</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Keterangan</th>
+                        <th>Nilai</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Harga Asli</td>
+                        <td id="txtHarga">Rp 0</td>
+                    </tr>
+                    <tr>
+                        <td>Potongan Diskon</td>
+                        <td id="txtPotongan">Rp 0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Bayar</strong></td>
+                        <td><strong id="txtTotalBayar">Rp 0</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
