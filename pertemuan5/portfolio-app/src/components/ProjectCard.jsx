@@ -4,7 +4,7 @@
  */
 export default function ProjectCard({ project }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-5 cursor-pointer hover:border-blue-500 transition-colors">
+    <div className="bg-white border border-gray-200 rounded-xl p-5 cursor-pointer shadow-sm hover:shadow-md hover:border-blue-500 transition-all">
       <div className="flex justify-between text-xs text-gray-500">
         <span>{project.module}</span>
         <span>&rarr;</span>

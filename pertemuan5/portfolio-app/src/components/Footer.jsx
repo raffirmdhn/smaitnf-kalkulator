@@ -4,7 +4,7 @@
  */
 export default function Footer({ studentName, school, socialLinks }) {
   return (
-    <footer id="kontak" className="bg-white border border-gray-200 rounded-xl p-6">
+    <footer id="kontak" className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
       <h2 className="text-lg font-bold text-gray-900">Mari Terhubung</h2>
       <p className="text-sm text-gray-600 mt-1">
         Kirim pesan atau hubungi saya melalui:

@@ -4,7 +4,7 @@
  */
 export default function SkillBadge({ skill }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 flex justify-between items-center">
+    <div className="bg-white border border-gray-200 rounded-xl p-4 flex justify-between items-center shadow-sm hover:shadow-md transition-all">
       <div>
         <h3 className="font-bold text-gray-900 text-sm">{skill.name}</h3>
         <p className="text-xs text-gray-500 mt-0.5">{skill.level}</p>

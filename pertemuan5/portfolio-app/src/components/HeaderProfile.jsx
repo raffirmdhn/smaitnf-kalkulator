@@ -7,7 +7,7 @@ export default function HeaderProfile({ profile }) {
   const initials = profile.name ? profile.name.charAt(0) : "N";
 
   return (
-    <header className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col sm:flex-row gap-6 items-center">
+    <header className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col sm:flex-row gap-6 items-center shadow-sm">
       {/* Avatar Foto / Inisial */}
       <div className="shrink-0">
         {profile.avatarUrl ? (
