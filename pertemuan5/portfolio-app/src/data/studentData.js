@@ -11,7 +11,6 @@ export const studentData = {
   // 1. Identitas & Profil Siswa
   name: "Muhammad Fatih",
   nickname: "Fatih",
-  // Simpan foto di folder 'public/' (misal public/avatar.png), lalu panggil "/nama-file.png"
   avatarUrl: "/avatar.png",
   school: "SMAIT Nurul Fikri",
   role: "Aspiring Frontend Developer",
@@ -26,12 +25,12 @@ export const studentData = {
 
   // 3. Daftar Keahlian (Dirender berulang menggunakan .map() di SkillSection)
   skills: [
-    { name: "HTML5", level: "Dasar & Semantik", category: "Markup", color: "orange" },
-    { name: "CSS3", level: "Layout & Responsif", category: "Style", color: "blue" },
-    { name: "JavaScript", level: "Logika & DOM API", category: "Programming", color: "yellow" },
-    { name: "React", level: "Komponen & Props", category: "Framework", color: "cyan" },
-    { name: "Tailwind CSS", level: "Utility-First", category: "Framework", color: "teal" },
-    { name: "Git Basics", level: "Simpan & Riwayat", category: "Tools", color: "gray" },
+    { name: "HTML5", level: "Dasar & Semantik", category: "Markup" },
+    { name: "CSS3", level: "Layout & Responsif", category: "Style" },
+    { name: "JavaScript", level: "Logika & DOM API", category: "Programming" },
+    { name: "React", level: "Komponen & Props", category: "Framework" },
+    { name: "Tailwind CSS", level: "Utility-First", category: "Framework" },
+    { name: "Git Basics", level: "Simpan & Riwayat", category: "Tools" },
   ],
 
   // 4. Portofolio Karya Nyata Modul 1 (Dirender berulang menggunakan .map() di ProjectSection)

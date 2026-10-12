@@ -1,69 +1,50 @@
 /**
- * Komponen HeaderProfile
- * Menampilkan kartu identitas personal siswa dengan gaya modern, hangat, dan tanpa AI-slop.
+ * Komponen HeaderProfile (Versi Ringkas Ramah Siswa)
+ * Menampilkan kartu profil siswa dengan class Tailwind yang ringkas dan mudah dipelajari.
  */
 export default function HeaderProfile({ profile }) {
-  // Ambil inisial nama siswa
-  const initials = profile.name
-    ? profile.name
-        .split(" ")
-        .slice(0, 2)
-        .map((n) => n[0])
-        .join("")
-        .toUpperCase()
-    : "NF";
+  // Ambil inisial nama jika foto tidak ada
+  const initials = profile.name ? profile.name.charAt(0) : "N";
 
   return (
-    <header id="profil" className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-        {/* Avatar Profil: Lingkaran foto dengan fallback ke inisial */}
-        <div className="shrink-0">
-          {profile.avatarUrl ? (
-            <img
-              src={profile.avatarUrl}
-              alt={profile.name}
-              className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-2 border-gray-200 shadow-sm"
-            />
-          ) : (
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-blue-600 text-white font-bold text-2xl md:text-3xl flex items-center justify-center shadow-sm">
-              {initials}
-            </div>
-          )}
-        </div>
-
-        {/* Informasi Utama Siswa */}
-        <div className="flex-1 space-y-2">
-          {/* Nama & Role */}
-          <div>
-            <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">
-              {profile.name}
-            </h1>
-            <p className="text-sm md:text-base font-semibold text-blue-600 mt-0.5">
-              {profile.role} • {profile.school}
-            </p>
+    <header className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col sm:flex-row gap-6 items-center">
+      {/* Avatar Foto / Inisial */}
+      <div className="shrink-0">
+        {profile.avatarUrl ? (
+          <img
+            src={profile.avatarUrl}
+            alt={profile.name}
+            className="w-20 h-20 rounded-full object-cover"
+          />
+        ) : (
+          <div className="w-20 h-20 rounded-full bg-blue-600 text-white font-bold text-2xl flex items-center justify-center">
+            {initials}
           </div>
+        )}
+      </div>
 
-          {/* Bio Singkat Personal */}
-          <p className="text-sm text-gray-600 leading-relaxed pt-1">
-            {profile.bio}
-          </p>
+      {/* Info Profil Siswa */}
+      <div className="flex-1 text-center sm:text-left">
+        <h1 className="text-2xl font-bold text-gray-900">{profile.name}</h1>
+        <p className="text-sm text-blue-600 font-medium mt-1">
+          {profile.role} • {profile.school}
+        </p>
+        <p className="text-sm text-gray-600 mt-2">{profile.bio}</p>
 
-          {/* Tombol Aksi (CTA) Berhierarki Jelas */}
-          <div className="pt-3 flex flex-wrap items-center gap-3">
-            <a
-              href="#proyek"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl shadow-sm transition-all hover:-translate-y-0.5"
-            >
-              <span>Lihat Hasil Karya</span>
-              <span className="text-xs">&darr;</span>
-            </a>
-            <a
-              href="#kontak"
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-xl border border-gray-200 transition-colors"
-            >
-              Hubungi Saya
-            </a>
-          </div>
+        {/* Tombol Aksi */}
+        <div className="flex gap-3 justify-center sm:justify-start mt-4">
+          <a
+            href="#proyek"
+            className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700"
+          >
+            Lihat Karya
+          </a>
+          <a
+            href="#kontak"
+            className="px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-lg hover:bg-gray-200"
+          >
+            Kontak
+          </a>
         </div>
       </div>
     </header>
