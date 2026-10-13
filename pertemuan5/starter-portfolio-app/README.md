@@ -1,25 +1,37 @@
-# 🚀 Modul 2 - Starter: The Living Portfolio (Pertemuan 5)
+# 🚀 The Living Portfolio - Starter Pack (Pertemuan 5)
 **Praktikum Pemrograman Web: SMAIT Nurul Fikri**
 
 Selamat datang di lembar kerja praktikum **Pertemuan 5**! Pada pertemuan ini, kita akan merakit aplikasi portofolio pribadi modern menggunakan **React** dan **Tailwind CSS**.
 
 ---
 
-## 🛠️ Langkah Menjalankan Proyek di Laptop
+## ⚡ Akses Cepat di Chromebook (Tanpa Install)
 
-1. Buka folder ini di VS Code atau terminal:
-   ```bash
-   cd pertemuan5/starter-portfolio-app
-   ```
-2. Pasang dependencies (cukup 1x di awal):
+Bagi siswa yang menggunakan **Chromebook** atau belum menginstal Node.js di laptop, kamu bisa langsung ngoding di browser hanya dengan satu klik:
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/raffirmdhn/portfolio-starter-nufidevs)
+
+> 💡 **Petunjuk Penggunaan StackBlitz:**
+> 1. Klik tombol **Open in StackBlitz** di atas.
+> 2. Tunggu beberapa detik hingga proses instalasi dan server otomatis berjalan.
+> 3. Klik tombol **Fork** di pojok kiri atas untuk menyimpan salinan proyek ke akunmu sendiri.
+> 4. Mulai kerjakan misi dari **TODO 1** di file `src/App.jsx`!
+
+---
+
+## 🛠️ Langkah Menjalankan di Laptop Pribadi (VS Code)
+
+Jika menggunakan laptop pribadi dengan VS Code dan Node.js yang sudah terpasang:
+
+1. Pasang dependencies (cukup 1x di awal):
    ```bash
    npm install
    ```
-3. Jalankan development server lokal:
+2. Jalankan development server lokal:
    ```bash
    npm run dev
    ```
-4. Tekan `Ctrl + Klik` tautan `http://localhost:5173` yang muncul di terminal untuk membukanya di browser!
+3. Tekan `Ctrl + Klik` tautan `http://localhost:5173` yang muncul di terminal untuk membukanya di browser!
 
 ---
 
